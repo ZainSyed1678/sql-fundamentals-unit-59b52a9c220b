@@ -1,15 +1,14 @@
--- Employee records cleanup: run the three statements in this order.
 
--- 1. Give everyone in Sales a 10% raise.
+-- Part 1: Give Sales employees a 10% raise
 UPDATE employees
-SET salary = salary * 1.10
+SET salary = ROUND(salary * 1.10, 2)
 WHERE department = 'Sales';
 
--- 2. Remove everyone in the Temporary department.
+-- Part 2: Delete employees belonging to Temporary
 DELETE FROM employees
 WHERE department = 'Temporary';
 
--- 3. List who is left.
+-- Part 3: Display remaining employees
 SELECT id, name, salary, department
 FROM employees
 ORDER BY id;
